@@ -19,7 +19,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() common,
-    required TResult Function() success,
+    required TResult Function(User user) success,
     required TResult Function(String errorText) error,
     required TResult Function() loading,
   }) =>
@@ -27,7 +27,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? common,
-    TResult? Function()? success,
+    TResult? Function(User user)? success,
     TResult? Function(String errorText)? error,
     TResult? Function()? loading,
   }) =>
@@ -35,7 +35,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? common,
-    TResult Function()? success,
+    TResult Function(User user)? success,
     TResult Function(String errorText)? error,
     TResult Function()? loading,
     required TResult orElse(),
@@ -86,23 +86,25 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 }
 
 /// @nodoc
-abstract class _$$_CommonCopyWith<$Res> {
-  factory _$$_CommonCopyWith(_$_Common value, $Res Function(_$_Common) then) =
-      __$$_CommonCopyWithImpl<$Res>;
+abstract class _$$CommonImplCopyWith<$Res> {
+  factory _$$CommonImplCopyWith(
+          _$CommonImpl value, $Res Function(_$CommonImpl) then) =
+      __$$CommonImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CommonCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Common>
-    implements _$$_CommonCopyWith<$Res> {
-  __$$_CommonCopyWithImpl(_$_Common _value, $Res Function(_$_Common) _then)
+class __$$CommonImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$CommonImpl>
+    implements _$$CommonImplCopyWith<$Res> {
+  __$$CommonImplCopyWithImpl(
+      _$CommonImpl _value, $Res Function(_$CommonImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Common implements _Common {
-  const _$_Common();
+class _$CommonImpl implements _Common {
+  const _$CommonImpl();
 
   @override
   String toString() {
@@ -112,7 +114,7 @@ class _$_Common implements _Common {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Common);
+        (other.runtimeType == runtimeType && other is _$CommonImpl);
   }
 
   @override
@@ -122,7 +124,7 @@ class _$_Common implements _Common {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() common,
-    required TResult Function() success,
+    required TResult Function(User user) success,
     required TResult Function(String errorText) error,
     required TResult Function() loading,
   }) {
@@ -133,7 +135,7 @@ class _$_Common implements _Common {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? common,
-    TResult? Function()? success,
+    TResult? Function(User user)? success,
     TResult? Function(String errorText)? error,
     TResult? Function()? loading,
   }) {
@@ -144,7 +146,7 @@ class _$_Common implements _Common {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? common,
-    TResult Function()? success,
+    TResult Function(User user)? success,
     TResult Function(String errorText)? error,
     TResult Function()? loading,
     required TResult orElse(),
@@ -194,76 +196,113 @@ class _$_Common implements _Common {
 }
 
 abstract class _Common implements AuthState {
-  const factory _Common() = _$_Common;
+  const factory _Common() = _$CommonImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$SuccessImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success();
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl({required this.user});
+
+  @override
+  final User user;
 
   @override
   String toString() {
-    return 'AuthState.success()';
+    return 'AuthState.success(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() common,
-    required TResult Function() success,
+    required TResult Function(User user) success,
     required TResult Function(String errorText) error,
     required TResult Function() loading,
   }) {
-    return success();
+    return success(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? common,
-    TResult? Function()? success,
+    TResult? Function(User user)? success,
     TResult? Function(String errorText)? error,
     TResult? Function()? loading,
   }) {
-    return success?.call();
+    return success?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? common,
-    TResult Function()? success,
+    TResult Function(User user)? success,
     TResult Function(String errorText)? error,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(user);
     }
     return orElse();
   }
@@ -307,22 +346,29 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements AuthState {
-  const factory _Success() = _$_Success;
+  const factory _Success({required final User user}) = _$SuccessImpl;
+
+  User get user;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String errorText});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -330,7 +376,7 @@ class __$$_ErrorCopyWithImpl<$Res>
   $Res call({
     Object? errorText = null,
   }) {
-    return _then(_$_Error(
+    return _then(_$ErrorImpl(
       errorText: null == errorText
           ? _value.errorText
           : errorText // ignore: cast_nullable_to_non_nullable
@@ -341,8 +387,8 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error({required this.errorText});
+class _$ErrorImpl implements _Error {
+  const _$ErrorImpl({required this.errorText});
 
   @override
   final String errorText;
@@ -356,7 +402,7 @@ class _$_Error implements _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Error &&
+            other is _$ErrorImpl &&
             (identical(other.errorText, errorText) ||
                 other.errorText == errorText));
   }
@@ -367,14 +413,14 @@ class _$_Error implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() common,
-    required TResult Function() success,
+    required TResult Function(User user) success,
     required TResult Function(String errorText) error,
     required TResult Function() loading,
   }) {
@@ -385,7 +431,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? common,
-    TResult? Function()? success,
+    TResult? Function(User user)? success,
     TResult? Function(String errorText)? error,
     TResult? Function()? loading,
   }) {
@@ -396,7 +442,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? common,
-    TResult Function()? success,
+    TResult Function(User user)? success,
     TResult Function(String errorText)? error,
     TResult Function()? loading,
     required TResult orElse(),
@@ -446,33 +492,34 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements AuthState {
-  const factory _Error({required final String errorText}) = _$_Error;
+  const factory _Error({required final String errorText}) = _$ErrorImpl;
 
   String get errorText;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -482,7 +529,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -492,7 +539,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() common,
-    required TResult Function() success,
+    required TResult Function(User user) success,
     required TResult Function(String errorText) error,
     required TResult Function() loading,
   }) {
@@ -503,7 +550,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? common,
-    TResult? Function()? success,
+    TResult? Function(User user)? success,
     TResult? Function(String errorText)? error,
     TResult? Function()? loading,
   }) {
@@ -514,7 +561,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? common,
-    TResult Function()? success,
+    TResult Function(User user)? success,
     TResult Function(String errorText)? error,
     TResult Function()? loading,
     required TResult orElse(),
@@ -564,5 +611,5 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements AuthState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }

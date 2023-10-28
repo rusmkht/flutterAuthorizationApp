@@ -12,7 +12,7 @@ class ApiService {
     return _httpClient.post(
       'api/v1/auth/login',
       data: {
-        "username": username,
+        "email": username,
         "password": password,
       },
     );

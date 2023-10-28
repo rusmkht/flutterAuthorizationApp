@@ -9,11 +9,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.I;
 
-void initLocator() async {
+Future<void> initLocator() async {
   await _commonModule();
+  _repositoryModule();
   _networkModule();
   _dataSourceModule();
-  _repositoryModule();
 }
 
 Future<void> _commonModule() async {

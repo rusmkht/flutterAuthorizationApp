@@ -94,6 +94,7 @@ class AuthDataSource {
     await removeToken();
     await removeUsername();
     await removePassword();
+    await removeRefreshToken();
     return true;
   }
 }

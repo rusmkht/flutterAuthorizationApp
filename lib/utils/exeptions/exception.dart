@@ -43,7 +43,7 @@ class GlobalAuthException implements Exception {
       return GlobalAuthException(
         json: json,
         code: code,
-        message: json['error'] as String?,
+        message: json['message'] as String?,
       );
     } catch (e) {
       throw 'e';

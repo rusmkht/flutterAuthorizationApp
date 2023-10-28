@@ -75,24 +75,25 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -102,7 +103,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -172,27 +173,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements ProfileState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_CommonCopyWith<$Res> {
-  factory _$$_CommonCopyWith(_$_Common value, $Res Function(_$_Common) then) =
-      __$$_CommonCopyWithImpl<$Res>;
+abstract class _$$CommonImplCopyWith<$Res> {
+  factory _$$CommonImplCopyWith(
+          _$CommonImpl value, $Res Function(_$CommonImpl) then) =
+      __$$CommonImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_CommonCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$_Common>
-    implements _$$_CommonCopyWith<$Res> {
-  __$$_CommonCopyWithImpl(_$_Common _value, $Res Function(_$_Common) _then)
+class __$$CommonImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$CommonImpl>
+    implements _$$CommonImplCopyWith<$Res> {
+  __$$CommonImplCopyWithImpl(
+      _$CommonImpl _value, $Res Function(_$CommonImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Common implements _Common {
-  const _$_Common();
+class _$CommonImpl implements _Common {
+  const _$CommonImpl();
 
   @override
   String toString() {
@@ -202,7 +205,7 @@ class _$_Common implements _Common {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Common);
+        (other.runtimeType == runtimeType && other is _$CommonImpl);
   }
 
   @override
@@ -272,5 +275,5 @@ class _$_Common implements _Common {
 }
 
 abstract class _Common implements ProfileState {
-  const factory _Common() = _$_Common;
+  const factory _Common() = _$CommonImpl;
 }
